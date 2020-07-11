@@ -1,6 +1,6 @@
 # Wenzi's Poem
 
-This project is a poem generator in Python. To see it run, download the [poem/templatepoem.py](Pride&Prejud.py) and run it with Python or in a notebook. It will require [TextBlob](https://textblob.readthedocs.io), so make sure you've installed that first. 
+This project is a poem generator in Python. To see it run, download the [Pride&Prejud.py](https://github.com/wbobowiec1/creativecode/blob/master/poem/Wenzi'spoem.py) and run it with Python or in a notebook. It will require [TextBlob](https://textblob.readthedocs.io), so make sure you've installed that first. 
 
 This script also assumes you have a file called "Pride&Prejud.txt" in the same directory that the script runs from. The contents of that file can be anything you want to appropriate from. If you have different files, you can just change the filename reference on line 9 of the script.
 
