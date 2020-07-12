@@ -1,6 +1,6 @@
-# Three Ways to Generate a Novel
+# Generate A Novel Of My Own
 
-This project folder contains three different examples for generating a novel, as definied by [NaNoGenMo](http://nanogenmo.github.io). 
+This project folder contains an example for generating a novel, as definied by [NaNoGenMo](http://nanogenmo.github.io). 
 
 
 ## Tracery Bookery
