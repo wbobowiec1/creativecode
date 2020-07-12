@@ -1,21 +1,249 @@
-{"origin": 
-	["#chapter# #chapter# #chapter# #chapter# #chapter# #chapter# #chapter# #chapter# #chapter# #chapter# #chapter#"],
-	"chapter" : ["<h2>#title#</h2> #paragraph# #paragraph# #paragraph# #paragraph# #paragraph# #paragraph# #paragraph# #paragraph#"],
-	"paragraph" : [
-		"<p>#sentence# #sentence# #sentence# #sentence# #sentence# #sentence# #sentence# #sentence# #sentence# #sentence# #sentence# #sentence#</p>",
-		"<p>#sentence# #sentence# #sentence# #sentence#</p>"],
-
-	"sentence": [
-			"The weather today is #temp# and #weather#. ",
-			"It was the best of times it was the worst of times. ",
-			"It was a dark and #weather# night. ",
-			"They told me you were coming. ",
-			"It was a pleasure to burn. "
-			],
-	"title" : ["The #weather.capitalize# #friend.capitalize#"],
-	"temp" : ["cool","warm","icy","hot","cold","auspicious"],
-	"weather" : ["cloudy","snowy","ominous","spooky"],
-	"friend": ["people","others","enemies"],
-	"darkness" : ["snow day","sunshine","world"],
-	"best" : ["worst","best","first","west","blurst","burst","William Randolph Hearst"]
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Copy of TextGenerationPyTracery.ipynb",
+      "provenance": [],
+      "collapsed_sections": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/wbobowiec1/CreativeCodeClass/blob/master/Copy_of_TextGenerationPyTracery.ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "JBzs8u4K9WVu",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 346
+        },
+        "outputId": "0f0adaf1-9969-4aa0-cac9-a9069d917d05"
+      },
+      "source": [
+        "!pip install weasyprint\n",
+        "!pip install tracery\n",
+        "\n",
+        "import tracery\n",
+        "from tracery.modifiers import base_english\n",
+        "import markdown\n",
+        "import random\n",
+        "from weasyprint import HTML, CSS\n",
+        "from weasyprint.fonts import FontConfiguration\n",
+        "\n",
+        "rules = {\n",
+        "    \"origin\":\"#greeting#, it is a #adjective# day, #greeting2# my book.\",\n",
+        "    \"bookName\":\"The Tales of a Seeing Eye Dog: The Adventures of Fred The Seeing Eye Dog\",\n",
+        "    \"greeting\":[\"Hello\",\"Hi\",\"Greetings\", \"Hoi\", \"Hey\", \"It's been awhile\", \"Long-time no see\", \"Howdy\", \"Nice to meet you\", \"Nice to see you\"],\n",
+        "    \"adjective\":[\"beautiful\", \"wonderful\", \"fine\", \"bright\", \"pleasant\", \"glorious\", \"memorable\", \"golden\", \"blessed\", \"prosperous\", \"good\", \"delightful\", \"superb\", \"nice\", \"exciting\"],\n",
+        "    \"greeting2\":[\"welcome to\", \"here's\", \"you're invited to read\", \"I can't wait for you to read\"]\n",
+        "\n",
+        "}\n",
+        "\n",
+        "grammar = tracery.Grammar(rules)\n",
+        "grammar.add_modifiers(base_english)\n",
+        "print(grammar.flatten(\"#origin#\"))\n",
+        "print(\" \")\n",
+        "print(grammar.flatten(\"#bookName#\"))\n",
+        "\n",
+        "rules = {\n",
+        "    \"chapter_title\": [\"Chapter 1\",\"Chapter 2\",\"Chapter 3\", \"Chapter 4\", \"Chapter 5\", \"Chapter 6\", \"Chapter 7\", \"Chapter 8\", \"Chapter 9\", \"Chapter 10\", \"Chapter 11\", \"Chapter 12\", \"Chapter 13\", \"Chapter 14\", \"Chapter 15\"],\n",
+        "    \"sentence\":[\n",
+        "                \"Hello there my name is Fred. I am a seeing eye dog for blind people. .\",\n",
+        "                \"My owner’s name is Sarah but my owner is a boy, isn’t that funny or what. \",\n",
+        "                \"His wife is Ned, that is funny all right.\",\n",
+        "                \"Sarah is my dad while Ned is my mom.\",\n",
+        "                \"My family is a superhero family so each of us have a superpower and superhero name.\",\n",
+        "                \"I am laughing at you because this is just a page of me laughing at you.\",\n",
+        "                \"I fight crime.\",\n",
+        "                \"Me getting dognapped from two kids and trying to find my way home.\",\n",
+        "                \"I want to tell all about my favorite tv show.\",\n",
+        "                \"Me being alone for one day and what I do to save myself. \",\n",
+        "                \"I want a cat friend.\"\n",
+        "    ],\n",
+        "    \"paragraph\":[\n",
+        "                \"#sentence##sentence##sentence##sentence##sentence#\\n\\n\",\n",
+        "                \"#sentence##sentence##sentence#\\n\\n\",\n",
+        "                \"#sentence##sentence##sentence##sentence##sentence##sentence#\\n\\n\",\n",
+        "                \"#sentence##sentence##sentence##sentence#\\n\\n\",\n",
+        "                \"#sentence##sentence##sentence##sentence##sentence##sentence#\\n\\n\",\n",
+        "                \"#sentence##sentence##sentence##sentence##sentence##sentence#\\n\\n\",\n",
+        "                \"#sentence##sentence##sentence##sentence##sentence##sentence#\\n\\n\"\n",
+        "    ],\n",
+        "    \"chapter\":[\n",
+        "               \"#paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph#\",\n",
+        "               \"#paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph#\",\n",
+        "               \"#paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph#\",\n",
+        "               \"#paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph#\",\n",
+        "               \"#paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph#\",\n",
+        "               \"#paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph#\",\n",
+        "               \"#paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph#\",\n",
+        "               \"#paragraph##paragraph##paragraph##paragraph##paragraph##paragraph##paragraph#\",\n",
+        "               \"#paragraph##paragraph##paragraph##paragraph##paragraph##paragraph#\",\n",
+        "               \"#paragraph##paragraph##paragraph##paragraph##paragraph#\",\n",
+        "               \"#paragraph##paragraph##paragraph##paragraph#\",\n",
+        "               \"#paragraph##paragraph##paragraph#\",\n",
+        "               \"#paragraph##paragraph#\",\n",
+        "               \"#paragraph#\"\n",
+        "    ],\n",
+        "\n",
+        "\"origin\": \"\"\"\n",
+        "\n",
+        "\\# My Tracery Book\n",
+        "\n",
+        "\\#\\# #chapter_title#\n",
+        "\n",
+        "#chapter#\n",
+        "\n",
+        "\\#\\# #chapter_title#\n",
+        "\n",
+        "#chapter#\n",
+        "\n",
+        "\\#\\# #chapter_title#\n",
+        "\n",
+        "#chapter#\n",
+        "\n",
+        "\\#\\# #chapter_title#\n",
+        "\n",
+        "#chapter#\n",
+        "\n",
+        "\\#\\# #chapter_title#\n",
+        "\n",
+        "#chapter#\n",
+        "\n",
+        "\\#\\# #chapter_title#\n",
+        "\n",
+        "#chapter#\n",
+        "\n",
+        "\\#\\# #chapter_title#\n",
+        "\n",
+        "#chapter#\n",
+        "\n",
+        "\\#\\# #chapter_title#\n",
+        "\n",
+        "#chapter#\n",
+        "\n",
+        "\\#\\# #chapter_title#\n",
+        "\n",
+        "#chapter#\n",
+        "\n",
+        "\\#\\# #chapter_title#\n",
+        "\n",
+        "#chapter#\n",
+        "\n",
+        "\\#\\# #chapter_title#\n",
+        "\n",
+        "#chapter#\n",
+        "\n",
+        "\\#\\# #chapter_title#\n",
+        "\n",
+        "#chapter#\n",
+        "\n",
+        "\\#\\# #chapter_title#\n",
+        "\n",
+        "#chapter#\n",
+        "\n",
+        "\\#\\# #chapter_title#\n",
+        "\n",
+        "#chapter#\n",
+        "\n",
+        "\n",
+        "\\#\\# #chapter_title#\n",
+        "\n",
+        "#chapter#\n",
+        "\n",
+        "    \"\"\"\n",
+        "}\n",
+        "\n",
+        "grammar = tracery.Grammar(rules)\n",
+        "grammar.add_modifiers(base_english)\n",
+        "\n",
+        "novel = grammar.flatten(\"#origin#\")\n",
+        "\n",
+        "\n",
+        "\n",
+        "novel_html = markdown.markdown(novel)\n",
+        "\n",
+        "font_config = FontConfiguration()\n",
+        "html = HTML(string=novel_html)\n",
+        "css = CSS(string=\"\"\"\n",
+        "@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');\n",
+        "body {font-family: \"Orbitron\"}\n",
+        "\"\"\", font_config=font_config)\n",
+        "html.write_pdf('/content/novel.pdf',stylesheets=[css],font_config=font_config)"
+      ],
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Requirement already satisfied: weasyprint in /usr/local/lib/python3.6/dist-packages (51)\n",
+            "Requirement already satisfied: tinycss2>=1.0.0 in /usr/local/lib/python3.6/dist-packages (from weasyprint) (1.0.2)\n",
+            "Requirement already satisfied: html5lib>=0.999999999 in /usr/local/lib/python3.6/dist-packages (from weasyprint) (1.0.1)\n",
+            "Requirement already satisfied: CairoSVG>=2.4.0 in /usr/local/lib/python3.6/dist-packages (from weasyprint) (2.4.2)\n",
+            "Requirement already satisfied: cairocffi>=0.9.0 in /usr/local/lib/python3.6/dist-packages (from weasyprint) (1.1.0)\n",
+            "Requirement already satisfied: setuptools>=39.2.0 in /usr/local/lib/python3.6/dist-packages (from weasyprint) (47.3.1)\n",
+            "Requirement already satisfied: Pyphen>=0.9.1 in /usr/local/lib/python3.6/dist-packages (from weasyprint) (0.9.5)\n",
+            "Requirement already satisfied: cffi>=0.6 in /usr/local/lib/python3.6/dist-packages (from weasyprint) (1.14.0)\n",
+            "Requirement already satisfied: cssselect2>=0.1 in /usr/local/lib/python3.6/dist-packages (from weasyprint) (0.3.0)\n",
+            "Requirement already satisfied: webencodings>=0.4 in /usr/local/lib/python3.6/dist-packages (from tinycss2>=1.0.0->weasyprint) (0.5.1)\n",
+            "Requirement already satisfied: six>=1.9 in /usr/local/lib/python3.6/dist-packages (from html5lib>=0.999999999->weasyprint) (1.12.0)\n",
+            "Requirement already satisfied: defusedxml in /usr/local/lib/python3.6/dist-packages (from CairoSVG>=2.4.0->weasyprint) (0.6.0)\n",
+            "Requirement already satisfied: pillow in /usr/local/lib/python3.6/dist-packages (from CairoSVG>=2.4.0->weasyprint) (7.0.0)\n",
+            "Requirement already satisfied: pycparser in /usr/local/lib/python3.6/dist-packages (from cffi>=0.6->weasyprint) (2.20)\n",
+            "Requirement already satisfied: tracery in /usr/local/lib/python3.6/dist-packages (0.1.1)\n",
+            "Nice to see you, it is a memorable day, I can't wait for you to read my book.\n",
+            " \n",
+            "The Tales of a Seeing Eye Dog: The Adventures of Fred The Seeing Eye Dog\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "3e3ZgCk5mgH1",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 36
+        },
+        "outputId": "fe27fa54-2bfc-40c7-8677-0d4cc27e3c2a"
+      },
+      "source": [
+        "len(novel.split(\" \"))"
+      ],
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "5641"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 21
+        }
+      ]
+    }
+  ]
 }
