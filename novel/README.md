@@ -8,3 +8,5 @@ The enclosed [story.json](story.json) file is a Tracery grammar that should expa
 
 This JSON file can be dropped into [this template](https://github.com/zachwhalen/bookery).
 
+Here is the cleaner look of the program [Clean Version]{https://github.com/wbobowiec1/CreativeCodeClass/blob/master/Copy_of_TextGenerationPyTracery.ipynb}
+
