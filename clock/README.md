@@ -8,4 +8,4 @@ Not all of the code is purposeful like as much as the code for the clock is. The
 
 For version I'm sharing here, run it by copying the javascript [source code](https://github.com/wbobowiec1/creativecode/blob/master/clock/clock.js) into a [p5.js editor](http://editor.p5js.org). 
 
-The inspiration for this project is the classic [Coding Challenge #74: Clock with p5.js](https://www.youtube.com/watch?v=E4RyStef-gY).
+The inspiration for this project is the classic [Coding Challenge #74: Clock with p5.js](https://www.youtube.com/watch?v=E4RyStef-gY) and [Crazy Clock on p5.js](https://youtu.be/H_DolEtz5jo)
