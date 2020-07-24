@@ -1,6 +1,6 @@
 # My Clock
 
-<iframe src="https://editor.p5js.org/4everstandup/embed/v2bTQDQ7m"></iframe>
+Here is the my project [Clock Project](https://editor.p5js.org/4everstandup/full/v2bTQDQ7m)
 
 This is a unique clock I made with p5.js. There is two canvases used in this project too, just like the screensaver project. On the first canvas is the clock and then on the second canvas is the flicking dot in the middle of the clock. The dot changes colors randomly by itself, it switches between various mixtures of blue,green, and red. 
 
